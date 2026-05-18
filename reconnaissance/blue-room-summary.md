@@ -1,8 +1,10 @@
 Blue Room Vulnerability Assessment & Exploitation Summary
-1. Executive Summary
+1. Executive Summary-
+   
 A comprehensive security assessment and controlled exploitation phase were conducted against the target "Blue" environment within the authorized TryHackMe infrastructure. The primary objective was to validate the existence of critical legacy network vulnerabilities, specifically focusing on unpatched Server Message Block (SMB) file-sharing protocols, and evaluate the security impact of a successful remote code execution (RCE) compromise.
 
-2. Key Findings & Exploitation Methodology
+2. Key Findings & Exploitation Methodology-
+   
 The assessment targeted a legacy Windows operating system deployment using a systematic penetration testing lifecycle:
 
 Vulnerability Scanning: Executed focused network enumeration targeting Port 445 (SMB) to detect structural flaws. 
@@ -19,13 +21,15 @@ Post-Exploitation & Looting: Successfully migrated unstable execution processes 
 Executed a privileged hashdump to extract local Security Account Manager (SAM) database credential hashes for local non-default user
 accounts, and located the three authorized target flags distributed across the core system directories.
 
-3. Security Impact
+3. Security Impact-
+   
 The presence of unpatched MS17-010 vulnerabilities introduces catastrophic exposure across external and internal networks.
 Because EternalBlue triggers a non-paged kernel pool memory overflow, an unauthenticated remote attacker can completely subvert
 operating system isolation layers to execute arbitrary code with maximum kernel-level privileges. This enables total data exfiltration,
 system destruction, and lateral network propagation (such as worm-based ransomware deployment).
 
-4. Remediation Recommendations
+4. Remediation Recommendations-
+   
 To protect structural infrastructure assets from similar network-level exploits, the following mitigations must be deployed across
 the PosBuzz Retail Solutions environment:
 
