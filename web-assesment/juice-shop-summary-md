@@ -1,12 +1,20 @@
-Web Application Assessment Summary
+ Web Application Assessment Summary
 
-Room: OWASP Juice Shop (TryHackMe) Objective Assess the OWASP Juice Shop web application for common vulnerabilities as part of the simulated external penetration test for PosBuzz Retail Solutions. Juice Shop is an intentionally vulnerable application covering the OWASP Top 10.
+Room: OWASP Juice Shop (TryHackMe)
+Objective
+Assess the OWASP Juice Shop web application for common vulnerabilities as part of the simulated external penetration test for PosBuzz Retail Solutions. Juice Shop is an intentionally vulnerable application covering the OWASP Top 10.
 
-Methodology Manual testing and automated techniques were used to identify vulnerabilities across the application. Testing focused on:
+Methodology
+Manual testing and automated techniques were used to identify vulnerabilities across the application. Testing focused on:
 
-Authentication and session management Input validation and injection flaws Access control weaknesses Sensitive data exposure Key Findings
+Authentication and session management
+Input validation and injection flaws
+Access control weaknesses
+Sensitive data exposure
+Key Findings
 
-SQL Injection (Login Bypass)
+1. SQL Injection (Login Bypass)
+
 Location: Login page (/#/login)
 
 Payload: ' OR 1=1-- in the email field
@@ -15,7 +23,8 @@ Impact: Authentication bypass — gained access to the admin account without val
 
 OWASP Category: A03 – Injection
 
-Cross-Site Scripting (XSS)
+2. Cross-Site Scripting (XSS)
+
 Location: Search bar and product feedback fields
 
 Payload: <script>alert('XSS')</script>
@@ -24,14 +33,16 @@ Impact: Reflected and stored XSS allowing session hijacking and phishing attacks
 
 OWASP Category: A03 – Injection / A07 – XSS
 
-Broken Access Control
+3. Broken Access Control
+
 Location: Admin panel accessible via direct URL (/#/administration)
 
 Impact: Unauthorized access to customer data, orders, and user management
 
 OWASP Category: A01 – Broken Access Control
 
-Sensitive Data Exposure
+4. Sensitive Data Exposure
+
 Location: /ftp directory (unauthenticated)
 
 Impact: Confidential files, backup data, and internal documents accessible without authentication
@@ -52,5 +63,5 @@ Enforce access controls server-side — never rely on client-side URL restrictio
 
 Remove or restrict the /ftp directory and ensure sensitive files are never publicly accessible.
 
-Implement a Web Application Firewall (WAF) as a defence-in-depth measure. Conduct regular DAST/SAST scanning and penetration testing as part of the SDLC.
-
+Implement a Web Application Firewall (WAF) as a defence-in-depth measure.
+Conduct regular DAST/SAST scanning and penetration testing as part of the SDLC.
